@@ -141,13 +141,13 @@ function validAnagram(first, second) {
 
   const lookup = {};
 
-  for (const i = 0; i < first.lngth; i++) {
+  for (let i = 0; i < first.lngth; i++) {
     const letter = first[i];
     // If letter exists, increment, otherwise set to 1
     lookup[letter] ? lookup[letter] += 1 : lookup[letter] = 1;
   }
 
-  for (const i = 0; i < second.length; i++) {
+  for (let i = 0; i < second.length; i++) {
     const letter = second[i];
     // can't find letter or letter is zero then it's not an anagram
     if (!lookup[letter]) { // 0 - is falsey value
@@ -159,3 +159,28 @@ function validAnagram(first, second) {
 
   return true;
 }
+
+// Another Anagram solution - es6 way O(N)
+function validAnagramFinal(str, strTwo) {
+  if (str.length !== strTwo.length) {
+    console.log(false);
+  }
+
+  const obj = {};
+
+  for (const letter of str) {
+    obj[letter] ? obj[letter] += 1 : obj[letter] = 1;
+  }
+
+  for (const letter of strTwo) {
+    if (!obj[letter]) {
+      return true;
+    } else {
+      obj[letter] -= 1;
+    }
+  }
+
+  return true;
+}
+
+validAnagramFinal('hello', 'ollehhh');
