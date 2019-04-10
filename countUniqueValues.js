@@ -24,7 +24,7 @@ function countUniqueValues(arr) {
       i++
     }
   }
-  console.log(uniqueNums.length);
+  console.log(uniqueNums.length); gi
   return uniqueNums.length;
 }
 
