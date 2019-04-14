@@ -51,8 +51,6 @@ function areThereDuplicates(...args) {
 
 // Linear Solution Best - Time O(n log n) Space O(1)
 function areThereDuplicates2() {
-  console.log(new Set(arguments))
-  return new Set(arguments).size !== arguments.length;
+  // Set - returns unique values of any type to an object
+  return new Set(arguments).size !== arguments.length; // if it doesn't match it means there is duplicate
 }
-
-areThereDuplicates2(1, 2, 3, 5, 5, 6, 7);
