@@ -34,21 +34,39 @@ class Node {
 }
 
 function validate(node, min = null, max = null) {
+  // when node data is greater than max (parent node data) - bst not valid
   if (max !== null && node.data > max) {
     return false;
   }
 
+  // when node data is less than min (parent node data) - bst not valid
   if (min !== null && node.data < min) {
     return false;
   }
 
+  // when left child node exist - call validate recursively
   if (node.left && !validate(node.left, min, node.data)) {
     return false;
   }
 
+  // when right child node exist - call validate recursively
   if (node.right && !validate(node.right, node.data, max)) {
     return false;
   }
 
   return true;
+}
+
+// Finding element inside the array using bst
+function binarySearch(arr, elem) {
+  let start = 0;
+  let end = arr.length - 1;
+  let middle = Math.floor((start + end) / 2);
+
+  while (arr[middle] !== elem && start <= end) {
+    if (elem < arr[middle]) end = middle - 1;
+    else start = middle + 1;
+    middle = Math.floor((start + end) / 2);
+  }
+  return arr[middle] === elem ? middle : -1;
 }
