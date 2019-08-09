@@ -8,17 +8,20 @@ function chunk(arr, size) {
       last.push(elem);
     }
   }
+  console.log(chunked);
   return chunked;
 }
 
-function chunk(arr, size) {
-  const chunked = [];
-  let index = 0;
+// function chunk(arr, size) {
+//   const chunked = [];
+//   let index = 0;
 
-  while (index < arr.length) {
-    chunked.push(arr.slice(index, index + size))
-    index += size;
-  }
+//   while (index < arr.length) {
+//     chunked.push(arr.slice(index, index + size))
+//     index += size;
+//   }
 
-  return chunked;
-}
+//   return chunked;
+// }
+
+chunk([1, 2, 3, 4, 5], 3)
